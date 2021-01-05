@@ -17,6 +17,8 @@ import frc.robot.commands.DefaultDriveTrainControl;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -53,6 +55,7 @@ public class RobotContainer {
       () -> mainStick.getRawAxis(3),
       () -> mainStick.getRawAxis(1)
       );
+      CommandScheduler.getInstance().setDefaultCommand(m_drivetrain, m_dtDefaultCtrl);
     // Configure the button bindings
     configureButtonBindings();
   }
